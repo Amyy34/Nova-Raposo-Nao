@@ -1,0 +1,134 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+@font-face {
+    font-family: "Hamerslag";
+    src: local(Hamerslag), url(Fonte/webfonts_LaTribuneCP/LaTribuneCP.ttf.woff);
+    font-weight: 100;
+ }
+
+body{
+    text-align: center;
+    background-color: white;
+    margin: 0px 30px 0px 30px;
+}
+
+
+h1{
+    color: black;
+    font-family: "Hamerslag";
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    
+}
+
+div p{
+
+    font-size: 15px;
+    text-align:start;
+}
+
+#TituloPrincipal{
+    display: flex;
+    font-size: 60px;
+    flex-direction: column;
+    align-items: start;
+    
+}
+
+#imagemTitulo{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#textocabeçalho{
+    display: flex;
+    justify-content: end;
+    width: 30%;
+}
+
+#frame1{
+    width: 100%;
+    height: 40rem;
+    margin: 20px 0px 20px 0px;
+
+}
+
+#tnr{
+    font-size: 90px;
+    width: 80%;
+}
+
+#secao1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+#containert1{
+
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+#containert1 p{
+    margin:40px;
+    width: 90%;
+}
+
+.linha{
+    padding-right: 30px;
+    border-right: solid 2px red;
+}
+
+#imagemTitulo img{
+width: 40%;
+}
+
+#secao2{
+    display: flex;
+    text-align: start;
+    justify-content: center;
+    align-items: baseline;
+    gap: 20px;
+
+}
+
+#card{
+    width: 20%;
+    border-left: solid 2px red;
+    padding-left: 30px;
+}
+
+#card p,h1{
+    margin-bottom: 20px;
+}
+
+#p3{
+    margin-top: 37px;
+}
+
+#p7{
+    margin-top: 55px;
+}
+
+.card3{
+  border-right: solid 2px red;
+  padding-right: 30px;
+}
