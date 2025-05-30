@@ -1,90 +1,552 @@
 <!DOCTYPE html>
-<html>
-    <Head>
-        <link rel="icon" href="Imagens/Logo nova raposo não.jpg" type="image/png">
-        <Title>Nova Raposo Não</Title>
-        <link rel="stylesheet" href="index.css">
-    </Head>
-    <header>
-        <div id="container">
-        <div id="TituloPrincipal">
-            <h1>Nossa Raposo</h1>
-            <p> Araçariguama, Barueri, Cotia, Embu das Artes, Itapecerica da Serra, Itapevi, Jandira, Osasco, Santana de Parnaiba, São Paulo, Vargem Grande Paulista</p>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Raposo Não | Movimento de Resistência</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="Imagens/LogoSemFundo.png" id="icone">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+     <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-nav">
+            <button id="prev-btn">&lt;</button>
+            <button id="next-btn">&gt;</button>
         </div>
-
-        <div id="imagemTitulo">
-            <img  src="Imagens/Logo nova raposo não.jpg" alt="Não carregou a imagem">
-        </div>
-
-        <div id="textocabeçalho">
-            <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fuga esse odio! Iusto quas ut repellendus velit, mollitia error rerum.</p>
-        </div>
+        <img id="lightbox-image" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
-    </header>
-    <body>
-        <img id="frame1" src="Imagens/NOVA_RAPOSO_FRAME_1.jpg" alt="Rodovia">
-        <section id="secao1">
-            <h1 id ="tnr">
-                Nova Raposo:
-                desapropiações, desmatamento, pedágios, e muito mais trânsito!
-            </h1>
-            <div id="containert1">
-    
-                <div>
-    
-                    <p class="linha">
-                        Muitas pessoas ainda não sabem do que trata o projeto Nova
-                        Raposo. Um dos motivos para essa achecera é que, para uma obra de
-                        quase 88 8 bilhões, o governador Tarcísio de Freitas fez apenas duas
-                        audiências públicas, que não chegaram a reunir 60 pessoas, contrariando a legislação, que exige ampla divulgação e participação
-                        popular em projetos desse porte.
-                    </p>
-    
+
+
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="logo">
+                    <img src="Imagens/Logo.jpg" alt="Logo do Site">
                 </div>
-    
-                <div>
-    
-                    <p>
-                        Este site chega para informar e conscientizar a população
-                        sobre as graves consequências desta obra. Vamos exigir um projeto
-                        para melhorar a Raposo-Tavares, com real participação popular. Um
-                        projeto para o povo, com justiça socioambiental, transparência e
-                        preparado para enfrentar o agravamento da crise climática.
-                        Junte-se a nós!
-                    </p>
-                    
+                <h1 class="text-xl font-bold">Nova Raposo <span class="text-[#D32F2F]">Não</span></h1>
+            </div>
+            
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="#inicio" class="nav-link active text-gray-800 hover:text-[#2E7D32]">Início</a>
+                <a href="#projeto" class="nav-link text-gray-800 hover:text-[#2E7D32]">O Projeto</a>
+                <a href="#porque" class="nav-link text-gray-800 hover:text-[#2E7D32]">Por que Dizemos Não</a>
+                <a href="#impactos" class="nav-link text-gray-800 hover:text-[#2E7D32]">Impactos</a>
+                <a href="#participe" class="nav-link text-gray-800 hover:text-[#2E7D32]">Participe</a>
+            </nav>
+            
+
+            <button class="md:hidden text-gray-800" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+
+        <div class="mobile-menu fixed top-0 left-0 h-full w-4/5 bg-white shadow-lg z-50 p-5" id="mobile-menu">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center">
+                    <div class="logo">
+                        <img src="Imagens/Logo.jpg" alt="">
+                    </div>
+                    <h1 class="text-lg font-bold">Nova Raposo <span class="text-[#D32F2F]">Não</span></h1>
+                </div>
+                <button id="close-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="#inicio" class="py-2 border-b border-gray-200 text-gray-800 hover:text-[#2E7D32] mobile-nav-link">Início</a>
+                <a href="#projeto" class="py-2 border-b border-gray-200 text-gray-800 hover:text-[#2E7D32] mobile-nav-link">O Projeto</a>
+                <a href="#porque" class="py-2 border-b border-gray-200 text-gray-800 hover:text-[#2E7D32] mobile-nav-link">Por que Dizemos Não</a>
+                <a href="#impactos" class="py-2 border-b border-gray-200 text-gray-800 hover:text-[#2E7D32] mobile-nav-link">Impactos</a>
+                <a href="#participe" class="py-2 border-b border-gray-200 text-gray-800 hover:text-[#2E7D32] mobile-nav-link">Participe</a>
+            </nav>
+            <div class="mt-8">
+                <a href="https://www.change.org/p/nova-raposo-n%C3%A3o-queremos-transpar%C3%AAncia-e-participa%C3%A7%C3%A3o-popular-no-projeto?recruiter=550786289&recruited_by_id=902edb70-2830-11e6-91a1-15a72ef17f56&utm_source=share_petition&utm_campaign=psf_combo_share_message&utm_medium=copylink&utm_content=cl_sharecopy_490029622_pt-BR%3A4" class="block w-full py-3 text-center bg-[#D32F2F] text-white rounded-md hover:bg-[#b71c1c]">
+                    Assine a Petição
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="inicio" class="hero-section min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-20 text-center text-white">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 reveal">NOVA RAPOSO, <span class="text-[#D32F2F]">NÃO!</span></h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto reveal">Diga não à destruição ambiental e à injustiça social. Junte-se ao movimento contra a duplicação e o modelo de concessão da Rodovia Raposo Tavares.</p>
+            <a href="#participe" class="btn-primary text-lg font-bold py-4 px-8 rounded-md inline-block reveal">ASSINE A PETIÇÃO</a>
+            
+            <div class="mt-16 flex justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projeto" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">O Projeto que Contestamos</h2>
+                <div class="w-20 h-1 bg-[#2E7D32] mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto reveal">Entenda o que está sendo proposto pelo Governo de São Paulo e por que precisamos nos mobilizar contra este modelo de concessão.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h3 class="text-2xl font-bold mb-4 text-[#2E7D32]">O que é a "Nova Raposo"?</h3>
+                    <p class="mb-4">O projeto prevê a duplicação e concessão da Rodovia Raposo Tavares (SP-270) para a iniciativa privada por 30 anos, com investimentos estimados em R$ 4,4 bilhões.</p>
+                    <p class="mb-4">A proposta inclui a ampliação de faixas, construção de novos trevos e a implementação de praças de pedágio, sem considerar adequadamente os impactos socioambientais.</p>
+                    <p>O modelo de concessão foi elaborado sem ampla participação popular e audiências públicas representativas, ignorando as necessidades reais das comunidades afetadas.</p>
+                </div>
+                <div class="reveal">
+                    <div class="map-container h-96 bg-gray-100 rounded-lg shadow-md reveal clickable-image" id="map-image">
+                        <img src="Imagens/ProjetoNovaRaposo.png" alt="Projeto Nova Raposo" class="w-full h-full" id="img_projeto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="porque" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">Por que Dizemos NÃO</h2>
+                <div class="w-20 h-1 bg-[#D32F2F] mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto reveal">Existem razões fundamentais pelas quais nos opomos ao projeto da Nova Raposo. Conheça os principais motivos da nossa resistência.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div class="bg-white p-6 rounded-lg shadow-md impact-card reveal">
+                    <div class="w-16 h-16 bg-[#2E7D32] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Impacto Ambiental</h3>
+                    <p class="text-center">Desmatamento de áreas verdes importantes, fragmentação de habitats naturais e aumento da poluição do ar e sonora na região.</p>
                 </div>
                 
+
+                <div class="bg-white p-6 rounded-lg shadow-md impact-card reveal">
+                    <div class="w-16 h-16 bg-[#2E7D32] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#2E7D32]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Deslocamento de Comunidades</h3>
+                    <p class="text-center">Remoção forçada de famílias e comunidades inteiras que vivem às margens da rodovia há gerações.</p>
+                </div>
+                
+
+                <div class="bg-white p-6 rounded-lg shadow-md impact-card reveal">
+                    <div class="w-16 h-16 bg-[#2E7D32] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#2E7D32]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Tarifas Abusivas</h3>
+                    <p class="text-center">Implementação de pedágios que encarecem o acesso à mobilidade, prejudicando principalmente os moradores locais e trabalhadores.</p>
+                </div>
+                
+
+                <div class="bg-white p-6 rounded-lg shadow-md impact-card reveal">
+                    <div class="w-16 h-16 bg-[#2E7D32] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#2E7D32]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Falta de Diálogo</h3>
+                    <p class="text-center">Ausência de audiências públicas amplas e representativas, ignorando a participação popular nas decisões que afetam diretamente a população.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="secao2">
 
-            <div id="card">
-                <h1>Menos Água</h1>
-                <p>Concretagem, canalização e retificação de corpos d'água irão comprometer o abastecimento nas cidades</p>
-                <h3>Página 6</h3>
-                <img src="" alt="">
+    <section id="impactos" class="py-20 bg-white">
+        <div class="container mx-auto px-4"> 
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">Impactos Reais</h2>
+                <div class="w-20 h-1 bg-[#2E7D32] mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto reveal">Conheça os depoimentos e histórias de pessoas e comunidades que serão diretamente afetadas pelo projeto.</p>
             </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
 
-            <div id="card">
-                <h1>Mais Pedágios</h1>
-                <p>Aumento de gastos e prejuízos para quem precisa pegar a estrada todos os dias</p>
-                <h3 id="p3" >Página 3</h3>
-                <img src="" alt="">
+                <div class="map-container h-96 bg-gray-100 rounded-lg shadow-md reveal clickable-image" id="map-image">
+                    <img src="Imagens/FolderImpactosNovaRaposo.png" alt="Impactos da Nova Raposo" class="w-full h-full">
+                    
+
+                    <div class="map-point" style="top: 42%; left: 25%;" data-area="1"></div>
+                    <div class="map-point" style="top: 53%; left: 44%;" data-area="2"></div>
+                    <div class="map-point" style="top: 47%; left: 62%;" data-area="3"></div>
+                    <div class="map-point" style="top: 58%; left: 75%;" data-area="4"></div>
+                </div>
+                
+
+                <div class="reveal">
+                    <div id="testimonial-container" class="bg-gray-50 p-6 rounded-lg shadow-md h-96 overflow-y-auto">
+                        <div id="testimonial-1" class="testimonial-card mb-6 bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-[#2E7D32] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                    MJ
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">Maria José</h4>
+                                    <p class="text-sm text-gray-600">Moradora há 35 anos - Área 1</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"Minha família está aqui há três gerações. Construímos nossa vida neste lugar. Com o projeto, seremos forçados a sair sem garantia de uma moradia digna. Não queremos indenizações irrisórias, queremos o direito de permanecer."</p>
+                        </div>
+                        
+                        <div id="testimonial-2" class="testimonial-card mb-6 bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-[#2E7D32] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                    CS
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">Carlos Silva</h4>
+                                    <p class="text-sm text-gray-600">Comerciante local - Área 2</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"Meu pequeno comércio depende dos moradores locais e dos viajantes que param aqui. Com a duplicação e os pedágios, o fluxo vai mudar completamente. Vou perder meu sustento e de meus funcionários."</p>
+                        </div>
+                        
+                        <div id="testimonial-3" class="testimonial-card mb-6 bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-[#2E7D32] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                    AP
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">Ana Paula</h4>
+                                    <p class="text-sm text-gray-600">Bióloga - Área 3</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"A região possui fragmentos importantes de Mata Atlântica que serão destruídos. Várias espécies ameaçadas de extinção perderão seu habitat. O estudo de impacto ambiental é superficial e não considera alternativas menos danosas."</p>
+                        </div>
+                        
+                        <div id="testimonial-4" class="testimonial-card bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-[#2E7D32] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                    JR
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">João Ribeiro</h4>
+                                    <p class="text-sm text-gray-600">Trabalhador - Área 4</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"Uso a rodovia todos os dias para ir trabalhar. Com os pedágios, vou gastar quase 20% do meu salário só para me locomover. É inviável para quem ganha um salário mínimo. Precisamos de transporte público de qualidade, não de mais vias para carros."</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
 
-            <div id="card" class="card3">
-                <h1>Milhares de Desapropriações</h1>
-                <p>Familias ficarão sem casas; Crianças e adolescentes não terão escolas</p>
-                <h3 id="p7" >Página 7</h3>
-                <img src="" alt="">
+            <div class="text-center reveal">
+                <h3 class="text-2xl font-bold mb-6">Depoimentos em Vídeo</h3>
+                <p class="mb-8">Assista aos depoimentos de moradores e especialistas sobre os impactos do projeto.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-100 rounded-lg p-4 aspect-video flex flex-col items-center justify-center">
+                       <iframe width="270" height="155" src="https://www.youtube.com/embed/ccNQt6WOd60?si=xoDnW95mT42e4f5m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p class="font-bold">Comunidade Vila Esperança</p>
+                        <p class="text-sm text-gray-600">Depoimento dos moradores</p>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-lg p-4 aspect-video flex flex-col items-center justify-center">
+                        <iframe width="270" height="155" src="https://www.youtube.com/embed/4BOc5DsIM9o?si=Gbjg0TVaEl_Xyvba" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p class="font-bold">Análise Ambiental</p>
+                        <p class="text-sm text-gray-600">Especialistas explicam os impactos</p>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-lg p-4 aspect-video flex flex-col items-center justify-center">
+                        <iframe width="270" height="155" src="https://www.youtube.com/embed/9qgjTavLccY?si=H3os2-K9gYl4HkR7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p class="font-bold">Audiência Pública (2024)</p>
+                        <p class="text-sm text-gray-600"> Depoimento Ernesto Maeda</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+<section id="materiais" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Jornal Nossa Raposo</h2>
+            <div class="w-20 h-1 bg-[#2E7D32] mx-auto mb-6"></div>
+            <p class="text-lg max-w-3xl mx-auto">Baixe o nossso jornal para entender melhor os grandes impactos que a nova raposo pode causar e compartilhe com outras pessoas.</p>
+        </div>
 
-        </section>
-    
-    </body>
-    <footer>
 
+        <div class="flex justify-center"> 
+            <div class="grid grid-cols-1 max-w-md"> 
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-[#2E7D32] flex items-center justify-center">
+                        <img src="Imagens/movimento_NRN.jpg" alt="Movimento NRN" class="img_pdf">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Jornal Nova Raposo Não</h3>
+                        <p class="text-gray-600 mb-4">Edição especial sobre os impactos da Nova Raposo</p>
+                        <div class="flex justify-between items-center"> 
+                            <span class="text-sm text-gray-500">PDF • 2.4 MB</span>
+                            <button id="downloadBtn" class="bg-[#D32F2F] text-white px-4 py-2 rounded hover:bg-[#b71c1c] transition duration-300">
+                                Baixar PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="participe" class="py-20 bg-[#2E7D32] text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">Participe da Mobilização</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto reveal">Junte-se ao movimento e ajude a proteger comunidades, o meio ambiente e o direito à mobilidade justa.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg reveal">
+                    <h3 class="text-2xl font-bold mb-6 text-[#2E7D32]">Assine o Abaixo-Assinado</h3>
+                    <form id="petition-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-1 font-medium">Nome Completo</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2E7D32]" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-1 font-medium">E-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2E7D32]" required>
+                        </div>
+                        
+                        <div>
+                            <label for="city" class="block mb-1 font-medium">Cidade</label>
+                            <input type="text" id="city" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2E7D32]" required>
+                        </div>
+                        
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-5 h-5 text-[#2E7D32]" required>
+                                <span class="ml-2 text-sm">Concordo em receber atualizações sobre o movimento</span>
+                            </label>
+                        </div>
+                        
+                       <a href="https://www.change.org/p/nova-raposo-n%C3%A3o-queremos-transpar%C3%AAncia-e-participa%C3%A7%C3%A3o-popular-no-projeto?recruiter=550786289&recruited_by_id=902edb70-2830-11e6-91a1-15a72ef17f56&utm_source=share_petition&utm_campaign=psf_combo_share_message&utm_medium=copylink&utm_content=cl_sharecopy_490029622_pt-BR%3A4" target="_blank">
+  <button type="button"  id= "botaobaixoassinado" class="w-full py-3 bg-[#D32F2F] text-white font-bold rounded-md hover:bg-opacity-90 transition duration-300">
+    ASSINAR AGORA
+  </button>
+</a>
+
+                    </form>
+                </div>
+                
+
+                <div class="space-y-8 reveal">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Outras Formas de Participar</h3>
+                        <p class="mb-6">Existem diversas maneiras de apoiar o movimento e fazer a diferença.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-white bg-opacity-20 p-2 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Compartilhe Informações</h4>
+                                    <p class="text-sm">Divulgue o movimento nas suas redes sociais e ajude a conscientizar mais pessoas.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-white bg-opacity-20 p-2 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Participe dos Encontros</h4>
+                                    <p class="text-sm">Venha às reuniões comunitárias e audiências públicas para fortalecer nossa voz.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-white bg-opacity-20 p-2 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Seja Voluntário</h4>
+                                    <p class="text-sm">Temos diversas frentes de atuação que precisam de apoio, desde comunicação até apoio jurídico.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-white bg-opacity-20 p-2 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a4 4 0 00-4-4H8.8a4 4 0 00-2.6 1L4.8 4.4a1 1 0 000 1.4l1.4 1.4a1 1 0 001.4 0L9 6l1 2-2 1L7 8l-1.4 1.4a1 1 0 01-1.4 0L2.8 8a1 1 0 010-1.4L4 5.3a4 4 0 012.7-1.3H8a4 4 0 014 4v0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Contribua Financeiramente</h4>
+                                    <p class="text-sm">Ajude a financiar materiais, eventos e ações jurídicas do movimento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Siga nas Redes Sociais</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/people/Movimento-Nova-Raposo-n%C3%A3o/61558789246281/" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/novaraposonao/" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                                </svg>
+                            <a href="https://www.youtube.com/channel/UCqK4fuelR_THngk8A26cRwA" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                                </svg>
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-[#424242] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="logo" id="logoFooter">
+                           <img src="Imagens/LogoSemFundo.png" alt="Logo sem fundo">
+                        </div>
+                        <h3 class="text-xl font-bold">Nova Raposo <span class="text-[#D32F2F]">Não</span></h3>
+                    </div>
+                    <p class="text-sm text-gray-300">Movimento popular contra a duplicação e o modelo de concessão da Rodovia Raposo Tavares (SP-270).</p>
+                </div>
+                
+
+                <div>
+                    <h4 class="font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#inicio" class="hover:text-[#D32F2F] transition duration-300">Início</a></li>
+                        <li><a href="#projeto" class="hover:text-[#D32F2F] transition duration-300">O Projeto</a></li>
+                        <li><a href="#porque" class="hover:text-[#D32F2F] transition duration-300">Por que Dizemos Não</a></li>
+                        <li><a href="#impactos" class="hover:text-[#D32F2F] transition duration-300">Impactos</a></li>
+                        <li><a href="#participe" class="hover:text-[#D32F2F] transition duration-300">Participe</a></li>                    </ul>
+                </div>
+                
+
+                <div>
+                    <h4 class="font-bold mb-4">Notícias</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="https://www.al.sp.gov.br/noticia/?id=487645" class="hover:text-[#D32F2F] transition duration-300">
+                                <span class="font-semibold">Audiência Pública</span><br>
+                                <span class="text-gray-400">04/12/2024</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/preservaritapecerica/photos/2a-audi%C3%AAncia-popular-nova-raposo-em-itapecerica-embu-e-cotia-n%C3%A3ovenha-juntar-for/1006954031648633/?_rdr" class="hover:text-[#D32F2F] transition duration-300">
+                                <span class="font-semibold">Manifestação na Câmara</span><br>
+                                <span class="text-gray-400">14/06/2025</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.seesp.org.br/site/images/Jornal_do_Engenheiro/JE_584/RELATORIO_DE_IMPACTOS_R00.pdf" class="hover:text-[#D32F2F] transition duration-300">
+                                <span class="font-semibold">Relatório de Impacto</span><br>
+                                <span class="text-gray-400">22/05/2023</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+
+                <div>
+                    <h4 class="font-bold mb-4">Esteja Atualizado</h4>
+                    <p class="text-sm text-gray-300 mb-4">Siga nossas redes sociais para acompanhar as atualizações sobre o movimento.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="https://www.facebook.com/people/Movimento-Nova-Raposo-n%C3%A3o/61558789246281/" class="text-gray-300 hover:text-[#D32F2F] transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCqK4fuelR_THngk8A26cRwA" class="text-gray-300 hover:text-[#D32F2F] transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/novaraposonao/" class="text-gray-300 hover:text-[#D32F2F] transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-400">
+                <p>© 2025 Movimento Nova Raposo Não. Todos os direitos reservados.</p>
+                <p class="mt-2">Desenvolvido com ❤️ por Amy.S.S</p>
+            </div>
+        </div>
     </footer>
+
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-[#D32F2F] text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+    <script>
+
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
 </html>
