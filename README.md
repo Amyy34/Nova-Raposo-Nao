@@ -49,7 +49,7 @@ Quer ajudar a deixar esse projeto ainda mais bonito e forte?
 - Pode mandar **pull requests** com melhorias no código, design, acessibilidade, novos conteúdos ou o que achar legal.
 - Ou simplesmente **compartilhe o site** com quem você conhece — isso já ajuda MUITO!
 
-✨ **Todo apoio, por menor que seja, faz diferença. Juntes somos mais fortes!**
+✨ **Todo apoio, por menor que seja, faz diferença. Juntos somos mais fortes!**
 
 ---
 
